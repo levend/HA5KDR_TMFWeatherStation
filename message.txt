@@ -1,0 +1,8 @@
+Itt a HA5KDR automatikus időjárás jelentő állomása.
+Állomás szám 0036
+Talajmenti hőmérséklet 40.0 celziusz fok
+Fél méteren a hőmérséklet -41.0 celziusz fok
+2 méteren a hőmérséklet -42.0 celziusz fok
+A légnyomás 900 milibár
+Relatív páratartalom 10.0 %
+A mérés ideje 23 óra 40 perc
