@@ -1,8 +1,8 @@
-Itt a HA5KDR automatikus időjárás jelentő állomása.
-Állomás szám {device_id}
-Talajmenti hőmérséklet {temp_0} celziusz fok
-Fél méteren a hőmérséklet {temp_05} celziusz fok
-2 méteren a hőmérséklet {temp_2} celziusz fok
-A légnyomás {pressure} milibár
-Relatív páratartalom {humidity} %
-A mérés ideje {hour} óra {minute} perc
+Itt a Budapest Fővárosi Rádióamatőr Klub automatikus időjárásjelentő állomása.
+Állomás szám {device_id}.
+Talajmenti hőmérséklet {temp_0} celziusz fok.
+Fél méteren a hőmérséklet {temp_05} celziusz fok.
+2 méteren a hőmérséklet {temp_2} celziusz fok.
+A légnyomás {pressure} milibár.
+Relatív páratartalom {humidity} %.
+A mérés ideje {hour} óra {minute} perc.

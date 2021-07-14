@@ -46,9 +46,22 @@ while True:
     with open("message_template.txt", "rt") as fp:
         template_content = fp.read()
         template_content = template_content.replace('{device_id}', device_id)
-        template_content = template_content.replace('{temp_0}', str(temp_0))
-        template_content = template_content.replace('{temp_05}', str(temp_05))
-        template_content = template_content.replace('{temp_2}', str(temp_2))
+        
+        if temp_0 < 0:
+            template_content = template_content.replace('{temp_0}', "minusz {}".format(abs(temp_0)))
+        else:
+            template_content = template_content.replace('{temp_0}', str(temp_0))
+
+        if temp_05 < 0:
+            template_content = template_content.replace('{temp_05}', "minusz {}".format(abs(temp_05)))
+        else:
+            template_content = template_content.replace('{temp_05}', str(temp_05))
+
+        if temp_2 < 0:
+            template_content = template_content.replace('{temp_2}', "minusz {}".format(abs(temp_2)))
+        else:
+            template_content = template_content.replace('{temp_2}', str(temp_2))    
+
         template_content = template_content.replace('{pressure}', str(pressure))
         template_content = template_content.replace('{humidity}', str(humidity))
         template_content = template_content.replace('{hour}', str(datetime.now().hour))
