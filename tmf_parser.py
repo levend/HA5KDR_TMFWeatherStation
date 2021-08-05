@@ -7,6 +7,7 @@ import os
 import configparser
 from gpiozero import LED
 from gpiozero import Button
+from progress.bar import Bar
 
 def read_tmf():
     serial.write("r\n".encode())
@@ -84,6 +85,20 @@ def parse_tmf_response(match):
         
         relay.off()
 
+def do_readout():
+    value = read_tmf().decode()
+    print("Raw data: {}".format(value))  # printing the value
+    test_str = "|;0036+0400-0410-0420+0900+0100*0000*0000|"
+    
+    #value = test_str
+    
+    match = pattern.search(value)
+    
+    if match:
+        parse_tmf_response(match)
+    else:
+        print("TMF data cannot be parsed - is the device connected/powered?")    
+
 
 configparser = configparser.ConfigParser()
 configparser.read('config.ini')
@@ -95,20 +110,25 @@ pattern = re.compile(regex)
 read_tmf() # initialize the port - no data will be returned for the first attempt
 button = Button(6, pull_up=False)
 relay = LED(5)
+read_time_interval = int(settings['read_interval_minutes']) * 60
+
+remaining_time = read_time_interval
+
 
 while True:
     if  button.is_pressed:
-        value = read_tmf().decode()
-        print("Raw data: {}".format(value))  # printing the value
-        test_str = "|;0036+0400-0410-0420+0900+0100*0000*0000|"
-        
-        #value = test_str
-        
-        match = pattern.search(value)
-        
-        if match:
-            parse_tmf_response(match)
-        else:
-            print("TMF data cannot be parsed - is the device connected/powered?")
+        do_readout()
+        remaining_time = read_time_interval
+    
+    if remaining_time==0:
+        do_readout()
+        remaining_time = read_time_interval
+    else:
+        remaining_time = remaining_time - 1
+        time.sleep(1)
+        os.system('clear')
+        with Bar('Waiting for next readout', max=read_time_interval, width=100) as bar:
+            bar.next(remaining_time)
+
 
 
