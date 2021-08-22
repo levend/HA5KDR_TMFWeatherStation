@@ -1,8 +1,8 @@
-Itt a Budapest Fővárosi Rádióamatőr Klub automatikus időjárásjelentő állomása.
-Állomás szám {device_id}.
-Talajmenti hőmérséklet {temp_0} celziusz fok.
-Fél méteren a hőmérséklet {temp_05} celziusz fok.
-2 méteren a hőmérséklet {temp_2} celziusz fok.
+Itt a Helén Antal Ötös Károly Dénes Róbert hívójelű automatikus időjárásjelentő állomás.
+Talajmenti hőmérséklet {temp_0} tized celziusz fok.
+Fél méteren a hőmérséklet {temp_05} tized celziusz fok.
+2 méteren a hőmérséklet {temp_2} tized celziusz fok.
 A légnyomás {pressure} milibár.
 Relatív páratartalom {humidity} %.
+{wind}.
 A mérés ideje {hour} óra {minute} perc.
